@@ -1,0 +1,27 @@
+body {
+    font-size: 2em;
+    background-color: #f6f6f2;
+    text-align: center;
+}
+.contact-btn {
+    background-color: #fc2b53;
+    font-size: 0.8em;
+    transition-duration: 0.4s;
+}
+.contact-btn:hover {
+    background-color: #d1ffb3;
+}
+.contact-btn:focus {
+    background-color: #d1ffb3;
+}
+.form-btn {
+    background-color: #b78dfd;
+    font-size: 0.8em;
+    transition-duration: 0.4s;
+    }
+.form-btn:hover {
+    background-color: #d1ffb3;
+}
+.form-btn:focus {
+    background-color: #d1ffb3;
+}
