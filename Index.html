@@ -7,49 +7,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contacts</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Lobster" rel="stylesheet">
+    <script src="https://use.fontawesome.com/7fc3d5629f.js"></script>
     <link rel="stylesheet" href="Stylesheet/stylesheet.css">
+    </head>
 
 <body ng-controller='mainCTRL'>
+  
    <h1>Your contacts</h1><br>
-    <form class="form-horizontal">
+    <form class="form-horizontal 
+    col-xs-offset-1 col-xs-10
+    col-sm-offset-1 col-sm-10 
+    col-lg-offset-0 col-lg-12">
+    
     <div class="form-group">
-    <label class="col-sm-2 control-label">Name</label>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" placeholder="Name" ng-model='name'>
+    <label class="col-sm-2 control-label">First Name</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" placeholder="Name" ng-model='firstName'>
     </div>
   </div>
+  
+      <div class="form-group">
+    <label class="col-sm-2 control-label">Last Name</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" placeholder="Name" ng-model='lastName'>
+    </div>
+  </div>
+  
   <div class="form-group">
     <label class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-4">
+    <div class="col-sm-5">
       <input type="email" class="form-control" placeholder="Email" ng-model='email'>
     </div>
   </div>
+  
   <div class="form-group">
     <label class="col-sm-2 control-label">Telephone</label>
-    <div class="col-sm-4">
+    <div class="col-sm-5">
       <input type="text" class="form-control"  placeholder="Telephone" ng-model='telephone'>
     </div>
   </div>
+  
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-1">
-      <button type="button" class="btn btn-default form-btn" ng-click='addContact()' ng-hide='currentContactId > -1'>Add</button>
-      <button type="button" class="btn btn-default form-btn" ng-click='saveContact()' ng-show='currentContactId > -1'>Save</button>
+    <div class="col-sm-offset-2 col-sm-6">
+      <button type="button" class="btn btn-default form-btn form-btn-add col-lg-3" ng-click='addContact()' ng-hide='currentContactId > -1'>Add</button>
+      
+      <button type="button" class="btn btn-default form-btn form-btn-save 
+      col-sm-3 
+      col-lg-3" ng-click='saveContact()' ng-show='currentContactId > -1'>Save</button>
     </div>
   </div><br>
+   
+    <div class="form-group">
+    <label class="col-sm-2 control-label">Find</label>
+    <div class="col-sm-5 colo-sm-offset-4">
+      <input type="text" class="form-control" placeholder="search" ng-model="search">
+    </div>
+  </div><br>
+  
   <table class="table table-hover">
   <thead>
     <tr>
         <th>№</th>
-        <th>Name</th>
+        <th>First Name 
+        <i class="fa fa-long-arrow-up" aria-hidden="true" ng-click = "order = 'firstName'"></i>
+        <i class="fa fa-long-arrow-down" aria-hidden="true" ng-click = "order = '-firstName'"></i></th>
+        <th>Last Name
+         <i class="fa fa-long-arrow-up" aria-hidden="true" ng-click = "order = 'lastName'"></i>
+        <i class="fa fa-long-arrow-down" aria-hidden="true" ng-click = "order = '-lastName'"></i></th>
         <th>Telephone</th>
         <th>Email</th>
         <th></th>
     </tr>
 </thead>
+
 <tbody>
-    <tr ng-repeat="contact in contactsKeeper">
+    <tr ng-repeat="contact in contactsKeeper | orderBy: order | filter: search">
         <td>{{ $index + 1 }}</td>
-        <td>{{ contact.name }}</td>
+        <td>{{ contact.firstName}}</td>
+        <td>{{ contact.lastName }}</td>
         <td>{{ contact.telephone }}</td>
         <td>{{ contact.email }}</td>
         <td>
@@ -61,6 +97,7 @@
 </tbody>
 </table>
 </form>
+
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
 <script src="Contacts_App/app.js"></script>
 </body>

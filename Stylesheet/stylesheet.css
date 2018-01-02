@@ -1,27 +1,63 @@
 body {
     font-size: 2em;
-    background-color: #f6f6f2;
+    background: linear-gradient(-30deg, #cd21ec, #f9f585);
+    background-repeat: no-repeat;
     text-align: center;
+     font-family: Caveat;
+    letter-spacing: 1px; 
 }
-.contact-btn {
+
+h1 {
+    font-family: Lobster;
+}
+
+.contact-btn, .contact-btn:visited {
     background-color: #fc2b53;
     font-size: 0.8em;
     transition-duration: 0.4s;
+    width: 100px;
+    font-weight: 1000;
 }
-.contact-btn:hover {
+
+.contact-btn:hover, .contact-btn:focus {
     background-color: #d1ffb3;
 }
-.contact-btn:focus {
-    background-color: #d1ffb3;
-}
+
 .form-btn {
     background-color: #b78dfd;
     font-size: 0.8em;
     transition-duration: 0.4s;
+    width: 40%;
+    font-weight: 1000;
+    letter-spacing: 1px;
     }
-.form-btn:hover {
+
+.form-btn-add {
+    margin-right: 15px;
+}
+
+.form-btn-save {
+     width: 40%;
+    display: inline-block !important;
+}
+
+.form-btn:hover, .form-btn:active {
     background-color: #d1ffb3;
 }
-.form-btn:focus {
-    background-color: #d1ffb3;
+ 
+.form-group {
+    text-align: left;
+    margin: 10px;
+}
+.table-hover>tbody>tr:hover {
+    background-color: #dfbdfc;
+   
+}
+
+.table-hover>tbody>tr {
+   text-align: left;  
+}
+
+th i {
+    padding: 0px 10px;
 }
